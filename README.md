@@ -1,12 +1,11 @@
-# Exploring Geolocation Data with Plotly Express and Dash: A Road Crashes Dashboard
-### Source code and Docker files for cloud deployment
+# A Template for Deploying an CI/CD pipeline for a Python web application on the AWS platform
+### The appspec.yml, script files, and application files for the deployment
  
-This repository contains the source code and configuration files for the medium articles:
-* [Explore Geolocation Data with Plotly Express and Dash: A Road Crashes Dashboard](https://medium.com/@andrewlui_60044/exploring-geolocation-data-with-plotly-express-and-dash-road-crashes-dashboard-abef05908258)
-* [Dockerize and Deploy a Python Dash Application easily with AWS Elastic Beanstalk](https://medium.com/@andrewlui_60044/docker-ize-a-python-dash-application-and-deploy-it-to-cloud-717a7c25de5b)
-* [Build, store and run Docker image of a Python Dash Application with Google Cloud Platform](https://medium.com/@andrewlui_60044/dockerize-and-deploy-a-python-dash-application-google-cloud-6e33e5e54d7f)
+This repository contains a template for an CI/CD pipeline for a Python web application on the AWS platform. For the explanation on how to use this template, please refer to the following medium stories.
 
-<img width="1097" alt="image" src="https://user-images.githubusercontent.com/8808539/219955813-c55e37c8-2f43-4aaf-9f6e-c0b47cab49a2.png">
+* [Deploy a Python Application on a AWS CI/CD Pipeline (Part 1): Code Repository](https://medium.com/@andrewlui_60044/deploy-a-python-application-on-a-aws-ci-cd-pipeline-part-1-code-repository-1090ff888eaa)
+* [Deploy a Python Application on a AWS CI/CD Pipeline (Part 2): the Application Specification file appspec.yml](https://medium.com/@andrewlui_60044/deploy-a-python-application-on-a-aws-ci-cd-pipeline-part-2-the-application-specification-file-5e3472002be4)
+* [Deploy a Python Application on a AWS CI/CD Pipeline (Part 3): the Lot](https://medium.com/@andrewlui_60044/deploy-a-python-application-on-a-aws-ci-cd-pipeline-part-3-the-lot-1849af55db23)
 
 ### Requirments
 Tested with these versions but older versions may work.
@@ -17,27 +16,27 @@ Tested with these versions but older versions may work.
 - Dash Bootstrap Component 1.3.1
 
 ### Key Files
-- `roadcrash_qld.ipynb`: Jupyter notebook for executing the standalone Plotly Express Interactive Map (Without Dash)
-- `app.py`: The dashboard web application (using default OSM tiles)
-- `app_mapbox.py`: The dashboard web application (using Mapbox tiles)
-- `Dockerfile`: The Docker container configuration file for cloud deployment of the dashboard
-- `mapbox_access_token.txt`: The access token obtained from Mapbox (for the version that uses Mapbox tiles)
+- `app.py`: The dashboard web application
+- `road_crash.csv`: The trimmed road crash data file extracted from the full set offered at the [Queensland Government Open Data Portal](https://www.data.qld.gov.au/dataset/crash-data-from-queensland-roads/resource/e88943c0-5968-4972-a15f-38e120d72ec0)
+- `appspec.yml`: The application specification file for the deployment using AWS CodeDeploy
+- `scripts/requirements.txt`: The list of Python modules to be installed during the deployment
+- `scripts/dash.service': The service specification file to be added as a Linux service.
+- 'scripts/install_dependencies.sh`: The script file to execute during the AfterInstall phase of CodeDeploy.
+- 'scripts/start_dash.sh': The script file to execute during the ApplicationStart phase of CodeDeploy.
+- 'scripts/stop_dash.sh': The script file to execute during the ApplicationStop phase of CodeDeploy.
 
 ### The Road Crashes Data File
-The application requires the Road Crashes CSV file (`crash_data_queensland_1_crash_locations.csv`), which can be downloaded from the [Open Data Portal](https://www.data.qld.gov.au/dataset/crash-data-from-queensland-roads/resource/e88943c0-5968-4972-a15f-38e120d72ec0) of the Queensland Government, Australia.
+The application requires the Road Crashes CSV file (`crash_data_queensland_1_crash_locations.csv`), which can be downloaded from the [Open Data Portal](https://www.data.qld.gov.au/dataset/crash-data-from-queensland-roads/resource/e88943c0-5968-4972-a15f-38e120d72ec0) of the Queensland Government, Australia. 
 
-The file should be placed under the folder `data` in the root folder.
+A trimmed version is provided here for testing. Please download the original set if needed.
 
-<img width="338" alt="image" src="https://user-images.githubusercontent.com/8808539/220055872-561e7063-d5bc-4328-a16a-28737937ab0c.png">
+### Execute the application
 
-### Mapbox Access Token
-A mapbox access token is required for running `app_mapbox.py`, which uses Mapbox tiles as specified with the statement.
+Use the `-f` flag to specify the road crash data CSV file.
+
 ```
-fig.update_layout(mapbox_style="dark", mapbox_accesstoken=mapbox_access_token)
+python app.py -f road_crash.csv
 ```
-You may change the style from the dark theme to other available [themes](https://docs.mapbox.com/api/maps/styles/).  
-
-Please visit https://www.mapbox.com/ to create an account, obtain an access token, and store the token in the file `mapbox_access_token.txt`.
 
 ### Licences
 
