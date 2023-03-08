@@ -3,9 +3,9 @@
  
 This repository contains a template for an CI/CD pipeline for a Python web application on the AWS platform. For the explanation on how to use this template, please refer to the following medium stories.
 
-* [Deploy a Python Application on a AWS CI/CD Pipeline (Part 1): Code Repository](https://medium.com/@andrewlui_60044/deploy-a-python-application-on-a-aws-ci-cd-pipeline-part-1-code-repository-1090ff888eaa)
-* [Deploy a Python Application on a AWS CI/CD Pipeline (Part 2): the Application Specification file appspec.yml](https://medium.com/@andrewlui_60044/deploy-a-python-application-on-a-aws-ci-cd-pipeline-part-2-the-application-specification-file-5e3472002be4)
-* [Deploy a Python Application on a AWS CI/CD Pipeline (Part 3): the Lot](https://medium.com/@andrewlui_60044/deploy-a-python-application-on-a-aws-ci-cd-pipeline-part-3-the-lot-1849af55db23)
+* [Deploy a Python Application on an AWS CI/CD Pipeline (Part 1): Code Repository](https://medium.com/@andrewlui_60044/deploy-a-python-application-on-a-aws-ci-cd-pipeline-part-1-code-repository-1090ff888eaa)
+* [Deploy a Python Application on an AWS CI/CD Pipeline (Part 2): the Application Specification file appspec.yml](https://medium.com/@andrewlui_60044/deploy-a-python-application-on-a-aws-ci-cd-pipeline-part-2-the-application-specification-file-5e3472002be4)
+* [Deploy a Python Application on an AWS CI/CD Pipeline (Part 3): the Lot](https://medium.com/@andrewlui_60044/deploy-a-python-application-on-a-aws-ci-cd-pipeline-part-3-the-lot-1849af55db23)
 
 ### Requirments
 Tested with these versions but older versions may work.
